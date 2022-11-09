@@ -1,10 +1,13 @@
-require 'reminder.rb'
+require "reminder.rb"
 
 describe Reminder do
   it "keeps track of a task and outputs the task" do
-  reminder = Reminder.new("Nicola")
-  reminder.remind_me_to("tidy up")
-  result = reminder.remind
-  expect(result).to eq "tidy up, Nicola"
+    xer = Reminder.new("Nicola")
+    xer.remind_me_to("tidy up")
+    expect(xer.remind).to eq "tidy up, Nicola"
+  end
+  it "fails if no reminder set" do
+    thing = Reminder.new("Maya")
+    expect { thing.remind }.to raise_error "No reminder set!"
   end
 end
